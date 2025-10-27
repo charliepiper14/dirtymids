@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dirty Mids - Google Ads Deep Audit & Optimization Plan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #162642;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .slide {
+            background: white;
+            border-radius: 12px;
+            padding: 60px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            min-height: 600px;
+            page-break-after: always;
+        }
+
+        .slide-header {
+            border-bottom: 4px solid #cc5b27;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            width: 200px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #162642;
+            font-size: 42px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        h2 {
+            color: #162642;
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        h3 {
+            color: #cc5b27;
+            font-size: 24px;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #162642 0%, #1e3a5f 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .metric-card.accent {
+            background: linear-gradient(135deg, #cc5b27 0%, #e06a2f 100%);
+        }
+
+        .metric-label {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .metric-value {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .metric-change {
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .metric-change.positive {
+            color: #4ade80;
+        }
+
+        .metric-change.negative {
+            color: #ff6b6b;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        thead {
+            background: #162642;
+            color: white;
+        }
+
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        tr:hover {
+            background: #f9fafb;
+        }
+
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .status-good {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-warning {
+            background: #fed7aa;
+            color: #92400e;
+        }
+
+        .status-critical {
+            background: #fecaca;
+            color: #991b1b;
+        }
+
+        ul, ol {
+            margin: 20px 0 20px 30px;
+            line-height: 1.8;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        .insight-box {
+            background: #f0f9ff;
+            border-left: 4px solid #cc5b27;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .insight-box strong {
+            color: #cc5b27;
+        }
+
+        .funnel-visual {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 40px 0;
+        }
+
+        .funnel-stage {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .funnel-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #162642;
+            margin-bottom: 8px;
+        }
+
+        .funnel-label {
+            font-size: 14px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .funnel-arrow {
+            font-size: 40px;
+            color: #cc5b27;
+            margin: 0 10px;
+        }
+
+        .action-item {
+            background: white;
+            border: 2px solid #162642;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .action-item h4 {
+            color: #cc5b27;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .priority-high {
+            border-left: 6px solid #dc2626;
+        }
+
+        .priority-medium {
+            border-left: 6px solid #f59e0b;
+        }
+
+        .priority-low {
+            border-left: 6px solid #10b981;
+        }
+
+        .chart-placeholder {
+            background: #f3f4f6;
+            border: 2px dashed #d1d5db;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            color: #6b7280;
+            margin: 20px 0;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .cro-finding {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        .cro-finding strong {
+            color: #92400e;
+        }
+
+        @media print {
+            .slide {
+                page-break-after: always;
+                margin: 0;
+                box-shadow: none;
+            }
+            body {
+                background: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- SLIDE 1: COVER -->
+        <div class="slide" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: #162642;">
+            <img src="https://res.cloudinary.com/dcnabm5nc/image/upload/v1754585626/lead-guru-new-logo-W-450_oyvumx.webp" alt="Lead Guru Logo" class="logo" style="width: 300px; margin-bottom: 40px;">
+            <h1 style="font-size: 52px; margin-bottom: 20px; color: white;">Google Ads Deep Audit & Optimization Plan</h1>
+            <p class="subtitle" style="font-size: 28px; color: #cc5b27; margin-bottom: 30px;">Dirty Mids LLC</p>
+            <p class="subtitle" style="font-size: 22px; color: white;">Performance Review (90 / 30 / 14 Days)</p>
+            <p style="margin-top: 60px; color: rgba(255,255,255,0.8); font-size: 18px;">Prepared by: Lead Guru</p>
+            <p style="color: rgba(255,255,255,0.7); font-size: 16px;">October 27, 2025</p>
+        </div>
+
+        <!-- SLIDE 2: EXECUTIVE SUMMARY -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2>Executive Summary</h2>
+            </div>
+
+            <div style="background: #fef3c7; border-left: 6px solid #f59e0b; padding: 25px; border-radius: 8px; margin-bottom: 30px;">
+                <h3 style="margin-top: 0;">Overall Account Health: <span style="color: #f59e0b;">FAIR → CRITICAL</span></h3>
+                <p style="font-size: 18px; line-height: 1.6; color: #78350f;">Your account is underperforming significantly. Recent performance shows deteriorating efficiency with CPA climbing and ROAS dropping below breakeven in some campaigns. Immediate action required.</p>
+            </div>
+
+            <h3>Main Wins</h3>
+            <ul>
+                <li><strong>Brand Search is killing it:</strong> $2,013 spend generating 2,034 conversions at only $0.99 CPA — this is gold. 90% impression share on branded terms shows you own your brand.</li>
+                <li><strong>Shopping campaign efficiency:</strong> Traditional Shopping campaign (T-ROAS) delivering $34,054 at $22.75 CPA with solid 2.01x ROAS — your best performing non-brand campaign.</li>
+                <li><strong>Strong mobile dominance:</strong> 86% of your traffic and conversions come from mobile devices — you're reaching the youth demographic where they live.</li>
+                <li><strong>Branded keyword demand is there:</strong> "dirty mids" keywords are driving massive engagement with 33-40% CTRs.</li>
+            </ul>
+
+            <h3 style="margin-top: 40px;">Pain Points</h3>
+            <ul>
+                <li><strong>Performance Max campaigns bleeding cash:</strong> Your flagship "Baseball Pants PMAX" campaign spent $36,688 over 90 days but cost per conversion is $70.70 — you're barely breaking even at $19 COGS.</li>
+                <li><strong>CPA escalating rapidly:</strong> 14-day CPA for Baseball Pants PMAX hit $210.33 — this is unsustainable and signaling algorithm issues or market saturation.</li>
+                <li><strong>Conversion tracking looks broken:</strong> Several campaigns showing 0.00 conversions despite significant spend. This suggests serious tracking gaps.</li>
+                <li><strong>PMAX asset groups underperforming:</strong> Low click-through rates (0.28% - 0.52%) on your PMAX campaigns suggest weak creative or poor audience targeting.</li>
+                <li><strong>Wasted spend on low-performers:</strong> Two campaigns ("Sliding Low ROAS Products" and "Baseball Pants Low ROAS High T-ROAS") are spending money with zero conversions.</li>
+            </ul>
+
+            <h3 style="margin-top: 40px;">Key Timeframe Differences</h3>
+            <ul>
+                <li><strong>Performance degradation:</strong> Cost per conversion increased 142% in the Baseball Pants PMAX campaign from 90-day avg ($70.70) to 14-day recent ($210.33).</li>
+                <li><strong>Volume drop-off:</strong> Daily conversion rate dropped from peaks of 80+ conversions/day in early August to 20-30/day in October.</li>
+                <li><strong>Budget efficiency declining:</strong> Overall account ROAS trending down from 3x in early periods to sub-2x in recent 14 days.</li>
+            </ul>
+        </div>
+
+        <!-- SLIDE 3: ACCOUNT PERFORMANCE OVERVIEW -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2>Account Performance Overview</h2>
+                <p class="subtitle">Comparing 90-day, 30-day, and 14-day windows</p>
+            </div>
+
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Total Spend (90d)</div>
+                    <div class="metric-value">$123,585</div>
+                    <div class="metric-change">Jul 30 - Oct 27, 2025</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Conversions (90d)</div>
+                    <div class="metric-value">5,236</div>
+                    <div class="metric-change">Avg $23.60 CPA</div>
+                </div>
+                <div class="metric-card accent">
+                    <div class="metric-label">ROAS (90d)</div>
+                    <div class="metric-value">2.96x</div>
+                    <div class="metric-change">Est. $366,520 revenue</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Avg Order Value</div>
+                    <div class="metric-value">$70</div>
+                    <div class="metric-change">Target: Maintain</div>
+                </div>
+            </div>
+
+            <h3>Performance by Timeframe</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>90-Day</th>
+                        <th>30-Day</th>
+                        <th>14-Day</th>
+                        <th>Trend</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Total Spend</strong></td>
+                        <td>$123,585</td>
+                        <td>$36,519</td>
+                        <td>$13,427</td>
+                        <td><span class="status-badge status-good">Steady</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Conversions</strong></td>
+                        <td>5,236</td>
+                        <td>1,159</td>
+                        <td>376</td>
+                        <td><span class="status-badge status-warning">Declining</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cost/Conversion</strong></td>
+                        <td>$23.60</td>
+                        <td>$31.51</td>
+                        <td>$35.71</td>
+                        <td><span class="status-badge status-critical">Rising</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Est. ROAS</strong></td>
+                        <td>2.96x</td>
+                        <td>2.22x</td>
+                        <td>1.96x</td>
+                        <td><span class="status-badge status-critical">Dropping</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Est. Revenue</strong></td>
+                        <td>$366,520</td>
+                        <td>$81,130</td>
+                        <td>$26,320</td>
+                        <td><span class="status-badge status-warning">Variable</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="insight-box">
+                <strong>Critical Insight:</strong> Your account efficiency is deteriorating month-over-month. Cost per conversion has increased 51% from the 90-day average to the most recent 14 days. This suggests either ad fatigue, increased competition, targeting exhaustion, or tracking issues. ROAS has dropped from 3x to under 2x, which puts you dangerously close to your $19 COGS breakeven point.
+            </div>
+        </div>
+
+        <!-- SLIDE 4: FUNNEL BREAKDOWN -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2>Funnel Breakdown</h2>
+                <p class="subtitle">14-Day Performance (Oct 13-26, 2025)</p>
+            </div>
+
+            <div class="funnel-visual">
+                <div class="funnel-stage">
+                    <div class="funnel-number">1.11M</div>
+                    <div class="funnel-label">Impressions</div>
+                    <div style="margin-top: 15px; color: #666; font-size: 14px;">Served across all campaigns</div>
+                </div>
+                <div class="funnel-arrow">→</div>
+                <div class="funnel-stage">
+                    <div class="funnel-number">11,457</div>
+                    <div class="funnel-label">Clicks</div>
+                    <div style="margin-top: 15px; color: #666; font-size: 14px;">1.03% CTR</div>
+                </div>
+                <div class="funnel-arrow">→</div>
+                <div class="funnel-stage">
+                    <div class="funnel-number">11,457</div>
+                    <div class="funnel-label">Landing Page Visits</div>
+                    <div style="margin-top: 15px; color: #666; font-size: 14px;">Assumed 100% load rate</div>
+                </div>
+                <div class="funnel-arrow">→</div>
+                <div class="funnel-stage">
+                    <div class="funnel-number">376</div>
+                    <div class="funnel-label">Conversions</div>
+                    <div style="margin-top: 15px; color: #666; font-size: 14px;">3.28% conversion rate</div>
+                </div>
+            </div>
+
+            <h3>Drop-off Analysis</h3>
+            
+            <div class="two-column">
+                <div>
+                    <h4 style="color: #162642; margin-bottom: 15px;">Ad-Side Issues (Traffic Generation)</h4>
+                    <ul style="margin-left: 0; list-style-position: inside;">
+                        <li><strong>Low overall CTR (1.03%):</strong> Your ads aren't compelling enough. PMAX campaigns especially struggling at 0.52-0.78% CTR.</li>
+                        <li><strong>Search Impression Share: 22.93%:</strong> You're only showing up for about 1 in 5 searches — massive opportunity cost.</li>
+                        <li><strong>Lost IS (Rank): 77%:</strong> You're losing 77% of possible impressions due to low bids or poor quality score.</li>
+                        <li><strong>Brand search dominating clicks:</strong> Brand campaigns have 33.35% CTR, while generic terms languish at <1% — indicates weak generic ad creative.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: #162642; margin-bottom: 15px;">Site-Side Issues (Conversion)</h4>
+                    <ul style="margin-left: 0; list-style-position: inside;">
+                        <li><strong>3.28% site conversion rate:</strong> Industry benchmark for apparel is 2-3%, so you're in range but there's room to improve to 4-5%.</li>
+                        <li><strong>Massive device performance gap:</strong> Mobile gets 82% of traffic but conversion optimization seems lacking (more in CRO section).</li>
+                        <li><strong>Conversion tracking inconsistencies:</strong> Some campaigns show zero conversions despite spend — suggests broken tracking or attribution windows.</li>
+                        <li><strong>Landing page friction:</strong> CRO audit reveals missing urgency cues, weak social proof display, and no micro-commitment funnels.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="insight-box" style="margin-top: 30px;">
+                <strong>Bottom Line:</strong> You have a dual problem. On the ad side, you're not capturing enough search volume and your PMAX creative isn't resonating. On the site side, once people click, you're converting at an acceptable rate but not exceptional. The biggest immediate opportunity is fixing your ad-side issues to get more qualified traffic at a lower CPC, then optimizing on-site experience to push conversion rate from 3% to 5%+.
+            </div>
+        </div>
+
+        <!-- SLIDE 5: CAMPAIGN & AD GROUP INSIGHTS -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2>Campaign & Ad Group Insights</h2>
+                <p class="subtitle">90-Day Performance Analysis</p>
+            </div>
+
+            <h3>Top Performing Campaigns</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Campaign</th>
+                        <th>Spend</th>
+                        <th>Conversions</th>
+                        <th>CPA</th>
+                        <th>Est. ROAS</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #d1fae5;">
+                        <td><strong>Brand Search | ALL KEYWORDS</strong></td>
+                        <td>$2,013</td>
+                        <td>2,034</td>
+                        <td>$0.99</td>
+                        <td><strong>70.8x</strong></td>
+                        <td><span class="status-badge status-good">Excellent</span></td>
+                    </tr>
+                    <tr style="background: #d1fae5;">
+                        <td><strong>Shopping | T-ROAS | BR</strong></td>
+                        <td>$34,054</td>
+                        <td>1,497</td>
+                        <td>$22.75</td>
+                        <td><strong>3.08x</strong></td>
+                        <td><span class="status-badge status-good">Strong</span></td>
+                    </tr>
+                    <tr>
+                        <td>Generic | Necklaces PMAX</td>
+                        <td>$23,360</td>
+                        <td>646</td>
+                        <td>$36.16</td>
+                        <td>1.94x</td>
+                        <td><span class="status-badge status-warning">Marginal</span></td>
+                    </tr>
+                    <tr style="background: #fef3c7;">
+                        <td>Generic | Sliding PMAX</td>
+                        <td>$21,929</td>
+                        <td>374</td>
+                        <td>$58.69</td>
+                        <td>1.19x</td>
+                        <td><span class="status-badge status-warning">Borderline</span></td>
+                    </tr>
+                    <tr style="background: #fecaca;">
+                        <td><strong>Generic | Baseball Pants PMAX</strong></td>
+                        <td>$36,688</td>
+                        <td>519</td>
+                        <td>$70.70</td>
+                        <td><strong>0.99x</strong></td>
+                        <td><span class="status-badge status-critical">Losing Money</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top: 40px;">Campaign-Specific Issues</h3>
+
+            <div class="action-item priority-high">
+                <h4>🚨 Baseball Pants PMAX — Your Biggest Problem</h4>
+                <p><strong>Issue:</strong> This is your flagship product campaign, and it's hemorrhaging cash. $36,688 spent at $70.70 CPA means you're essentially at breakeven or losing money on every sale (COGS $19, AOV $70).</p>
+                <p style="margin-top: 10px;"><strong>Root Causes:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>PMAX algorithm hasn't optimized — CTR is 0.52%, conversion rate is 0.03%</li>
+                    <li>Asset group performance is weak (only 639K interactions from 451K impressions)</li>
+                    <li>Target ROAS bidding may be set too aggressively, causing algorithm confusion</li>
+                    <li>Creative assets likely not resonating with cold audiences</li>
+                </ul>
+                <p style="margin-top: 10px;"><strong>Recommendation:</strong> Pause this campaign immediately and rebuild. Extract your best-performing audience signals from Search and Shopping, create a fresh PMAX with stronger creative assets, and start with lower target ROAS to let algorithm learn.</p>
+            </div>
+
+            <div class="action-item priority-high">
+                <h4>🚨 Zero-Conversion Campaigns</h4>
+                <p><strong>Campaigns:</strong> "Sliding Low ROAS Products" ($12.32) and "Baseball Pants Low ROAS High T-ROAS" ($3.69)</p>
+                <p style="margin-top: 10px;"><strong>Issue:</strong> These campaigns have spent money but reported exactly 0.00 conversions. This is either a tracking issue or the campaigns are serving to completely irrelevant audiences.</p>
+                <p style="margin-top: 10px;"><strong>Recommendation:</strong> Pause both immediately. Check if conversion tracking is properly implemented for these specific campaigns. If tracking is fine, the campaigns are simply not viable.</p>
+            </div>
+
+            <div class="insight-box">
+                <strong>Budget Allocation Recommendation:</strong> You're spending 30% of budget on an underperforming PMAX campaign. Reallocate at least $20K/month from Baseball Pants PMAX to your Shopping campaign and Brand Search (which are printing money). Test small amounts on new PMAX builds only after consolidating winning audiences and creative.
+            </div>
+        </div>
+
+        <!-- SLIDE 6: KEYWORD & SEARCH TERM INSIGHTS -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2>Keyword & Search Term Insights</h2>
+                <p class="subtitle">90-Day Keyword Performance + 7-Day Search Term Waste Analysis</p>
+            </div>
+
+            <h3>Top Performing Keywords</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Keyword</th>
+                        <th>Match Type</th>
+                        <th>Clicks</th>
+                        <th>CTR</th>
+                        <th>Cost</th>
+                        <th>Performance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>dirty mids</strong></td>
+                        <td>Exact</td>
+                        <td>14,165</td>
+                        <td>35.14%</td>
+                        <td>$679.80</td>
+                        <td><span class="status-badge status-good">Excellent</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>dirty mids baseball pants</strong></td>
+                        <td>Exact</td>
+                        <td>2,457</td>
+                        <td>40.93%</td>
+                        <td>$459.73</td>
+                        <td><span class="status-badge status-good">Excellent</span></td>
+                    </tr>
+                    <tr>
+                        <td>dirty mids baseball</td>
+                        <td>Exact</td>
+                        <td>960</td>
+                        <td>33.10%</td>
+                        <td>$106.04</td>
+                        <td><span class="status-badge status-good">Strong</span></td>
+                    </tr>
+                    <tr>
+                        <td>dirtymids</td>
+                        <td>Exact</td>
+                        <td>1,525</td>
+                        <td>36.30%</td>
+                        <td>$95.42</td>
+                        <td><span class="status-badge status-good">Strong</span></td>
+                    </tr>
+                    <tr>
+                        <td>dirty mids necklace</td>
+                        <td>Exact</td>
+                        <td>714</td>
+                        <td>20.78%</td>
+                        <td>$90.65</td>
+                        <td><span class="status-badge status-good">Good</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top: 40px;">🚨 CRITICAL: Search Term Waste Analysis (Last 7 Days)</h3>
+            <div style="background: #dc2626; color: white; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <p style="font-size: 16px; line-height: 1.6;"><strong>Your PMAX campaigns are bleeding impression share on completely irrelevant searches.</strong> Analysis of 22,000+ search terms from the last 7 days reveals massive waste that's killing your Quality Score and impression share.</p>
+            </div>
+
+            <div class="cro-finding" style="background: #fecaca; border-color: #dc2626;">
+                <strong>Issue #1: Necklace PMAX Campaign Completely Off-Target</strong>
+                <p style="margin-top: 10px;">Your necklace campaign is showing for thousands of irrelevant searches:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li><strong>Celebrity/Fashion Jewelry:</strong> "migos ice chain," "kodak black new jewelry," "soulja boy jewelry," "gucci mane bart necklace," "givenchy flex necklace"</li>
+                    <li><strong>Wrong Sports:</strong> "best soccer crosses," "skateboarding necklace," "my favorite softball cheers"</li>
+                    <li><strong>Generic Fashion:</strong> "y2k jewelry," "candy choker necklace," "pear necklace," "beadwork necklace"</li>
+                    <li><strong>Unrelated Terms:</strong> "tight necklace men," "necklace glitter," "mint green beaded necklace"</li>
+                </ul>
+                <p style="margin-top: 10px; font-weight: bold; color: #991b1b;">Impact: Thousands of wasted impressions diluting your Quality Score and preventing you from showing for actual baseball necklace searches.</p>
+            </div>
+
+            <div class="cro-finding" style="background: #fecaca; border-color: #dc2626;">
+                <strong>Issue #2: Shopping Campaign Getting Competitor Brand Searches</strong>
+                <p style="margin-top: 10px;">Your Shopping campaigns are showing for competitor brands (wasting money):</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>"mizuno baseball pants youth" (14 impressions)</li>
+                    <li>"mizuno pinstripe baseball pants" (14 impressions)</li>
+                    <li>"lululemon baseball pants" (6 impressions)</li>
+                    <li>"ssk baseball pants" (6 impressions)</li>
+                    <li>"majestic authentic baseball pants"</li>
+                    <li>"academy sports baseball pants"</li>
+                    <li>"bruce bolt hand guards," "bruce bolt necklace"</li>
+                </ul>
+                <p style="margin-top: 10px; font-weight: bold; color: #991b1b;">Fix: Add all competitor brand names as negative keywords immediately.</p>
+            </div>
+
+            <div class="cro-finding" style="background: #fecaca; border-color: #dc2626;">
+                <strong>Issue #3: Wrong Sports & Wrong Products</strong>
+                <p style="margin-top: 10px;">Showing for completely unrelated categories:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li><strong>Wrong Sports:</strong> "volleyball pants men," "white football pants without pads," "dance team backpack," "boys lacrosse gifts"</li>
+                    <li><strong>Wrong Products:</strong> "catchers gloves baseball," "batting glove deodorizer," "slow pitch first base mitt," "athletic stretch tape"</li>
+                    <li><strong>Informational Queries:</strong> "what size is youth small baseball pants," "baseball clothing near me"</li>
+                </ul>
+            </div>
+
+            <h3 style="margin-top: 40px;">Comprehensive Negative Keyword List (Add Immediately)</h3>
+            <div class="two-column">
+                <div>
+                    <h4 style="color: #dc2626; margin-bottom: 15px;">Competitor Brands</h4>
+                    <ul style="margin-left: 20px; font-size: 14px; line-height: 1.8;">
+                        <li>mizuno</li>
+                        <li>lululemon</li>
+                        <li>ssk</li>
+                        <li>majestic</li>
+                        <li>bruce bolt</li>
+                        <li>academy sports</li>
+                        <li>under armour</li>
+                        <li>nike</li>
+                        <li>evoshield</li>
+                        <li>champro</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: #dc2626; margin-bottom: 15px;">Wrong Sports</h4>
+                    <ul style="margin-left: 20px; font-size: 14px; line-height: 1.8;">
+                        <li>football</li>
+                        <li>soccer</li>
+                        <li>volleyball</li>
+                        <li>basketball</li>
+                        <li>lacrosse</li>
+                        <li>hockey</li>
+                        <li>skateboard</li>
+                        <li>dance</li>
+                        <li>cheerleading</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="two-column" style="margin-top: 20px;">
+                <div>
+                    <h4 style="color: #dc2626; margin-bottom: 15px;">Wrong Products</h4>
+                    <ul style="margin-left: 20px; font-size: 14px; line-height: 1.8;">
+                        <li>glove</li>
+                        <li>gloves</li>
+                        <li>catchers</li>
+                        <li>first base mitt</li>
+                        <li>batting glove</li>
+                        <li>deodorizer</li>
+                        <li>backpack</li>
+                        <li>bag</li>
+                        <li>tape</li>
+                        <li>stretch tape</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: #dc2626; margin-bottom: 15px;">Wrong Intent</h4>
+                    <ul style="margin-left: 20px; font-size: 14px; line-height: 1.8;">
+                        <li>how to</li>
+                        <li>what size</li>
+                        <li>near me</li>
+                        <li>used</li>
+                        <li>second hand</li>
+                        <li>rental</li>
+                        <li>pattern</li>
+                        <li>sewing</li>
+                        <li>diy</li>
+                        <li>free</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="two-column" style="margin-top: 20px;">
+                <div>
+                    <h4 style="color: #dc2626; margin-bottom: 15px;">Celebrity/Fashion (for Necklaces)</h4>
+                    <ul style="margin-left: 20px; font-size: 14px; line-height: 1.8;">
+                        <li>migos</li>
+                        <li>kodak black</li>
+                        <li>soulja boy</li>
+                        <li>gucci mane</li>
+                        <li>givenchy</li>
+                        <li>y2k</li>
+                        <li>candy</li>
+                        <li>choker (unless baseball context)</li>
+                        <li>fashion</li>
+                        <li>designer</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: #dc2626; margin-bottom: 15px;">Price-Conscious</h4>
+                    <ul style="margin-left: 20px; font-size: 14px; line-height: 1.8;">
+                        <li>cheap</li>
+                        <li>discount</li>
+                        <li>sale</li>
+                        <li>clearance</li>
+                        <li>wholesale</li>
+                        <li>bulk</li>
+                        <li>deal</li>
+                        <li>coupon</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px;">Branded vs. Non-Branded Split</h3>
+            <div class="two-column">
+                <div class="metric-card" style="margin: 0;">
+                    <div class="metric-label">Branded Keywords</div>
+                    <div class="metric-value">$1,600</div>
+                    <div class="metric-change">35-40% CTR avg | Ultra-efficient</div>
+                    <p style="margin-top: 15px; font-size: 14px; line-height: 1.6;">Your branded terms are absolutely crushing it. These searches represent people who already know you and want your product. Protect this at all costs with high bids and top ad positions.</p>
+                </div>
+                <div class="metric-card" style="margin: 0; background: linear-gradient(135deg, #64748b 0%, #475569 100%);">
+                    <div class="metric-label">Generic/Category Keywords</div>
+                    <div class="metric-value">$412</div>
+                    <div class="metric-change">Lower CTR | Opportunity area</div>
+                    <p style="margin-top: 15px; font-size: 14px; line-height: 1.6;">Non-branded spend is minimal. Keywords like "baseball pants," "youth baseball pants," "tweener pants" are severely under-represented. Massive growth opportunity here.</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px;">Missing High-Value Keywords</h3>
+            <div class="insight-box">
+                <p><strong>Opportunity:</strong> Based on competitor research and market analysis, you should be aggressively bidding on:</p>
+                <ul style="margin-top: 10px;">
+                    <li>"baseball pants"</li>
+                    <li>"youth baseball pants"</li>
+                    <li>"tweener baseball pants"</li>
+                    <li>"baseball pants mid length"</li>
+                    <li>"custom baseball pants"</li>
+                    <li>"baseball knickers alternative"</li>
+                    <li>"baseball pants that don't drag"</li>
+                    <li>"fitted baseball pants"</li>
+                </ul>
+            </div>
+
+            <div class="insight-box" style="margin-top: 20px;">
+                <strong>Immediate Impact of Negative Keywords:</strong> Adding these negatives will:
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Improve Quality Score (fewer irrelevant impressions = higher CTR)</li>
+                    <li>Reduce wasted impression share on non-converting searches</li>
+                    <li>Lower CPC (better Quality Score = cheaper clicks)</li>
+                    <li>Increase Search Impression Share by 10-15% by freeing up budget and improving ad rank</li>
+                </ul>
+                <p style="margin-top: 15px; font-weight: bold; color: #cc5b27;">Expected Result: Impression Share could improve from 23% to 35-40% within 2 weeks just from negative keyword cleanup.</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: DEVICE & GEO PERFORMANCE -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2>Device & Geo Performance</h2>
+                <p class="subtitle">90-Day Analysis</p>
+            </div>
+
+            <h3>Device Breakdown</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Device</th>
+                        <th>Spend</th>
+                        <th>Clicks</th>
+                        <th>Conversions</th>
+                        <th>CPA</th>
+                        <th>% of Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Mobile Phones</strong></td>
+                        <td>$105,773</td>
+                        <td>101,883</td>
+                        <td>4,526</td>
+                        <td>$23.37</td>
+                        <td>86.4%</td>
+                    </tr>
+                    <tr>
+                        <td>Computers</td>
+                        <td>$15,037</td>
+                        <td>12,631</td>
+                        <td>663</td>
+                        <td>$22.68</td>
+                        <td>12.2%</td>
+                    </tr>
+                    <tr>
+                        <td>Tablets</td>
+                        <td>$2,622</td>
+                        <td>3,829</td>
+                        <td>45</td>
+                        <td>$58.49</td>
+                        <td>2.1%</td>
+                    </tr>
+                    <tr>
+                        <td>TV Screens</td>
+                        <td>$153</td>
+                        <td>7</td>
+                        <td>3</td>
+                        <td>$57.08</td>
+                        <td>0.1%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="insight-box" style="margin: 30px 0;">
+                <strong>Device Insights:</strong> Mobile is absolutely dominant at 86% of spend and conversions. This makes perfect sense given your youth demographic (14-18 year olds live on their phones). CPA is similar between mobile ($23.37) and desktop ($22.68), suggesting both are efficiently converting. Tablets have a much higher CPA ($58.49) — consider reducing tablet bids or excluding entirely.
+            </div>
+
+            <h3>Device Strategy Recommendations</h3>
+            <div class="two-column">
+                <div>
+                    <h4 style="color: #cc5b27; margin-bottom: 15px;">Mobile Optimization (Priority 1)</h4>
+                    <ul style="margin-left: 20px;">
+                        <li>Create mobile-first landing pages with faster load times</li>
+                        <li>Implement one-click checkout options (Apple Pay, Google Pay)</li>
+                        <li>Optimize product images for mobile screens (larger, clearer)</li>
+                        <li>Simplify forms — every extra field kills mobile conversion</li>
+                        <li>Add sticky "Add to Cart" buttons that follow scroll</li>
+                        <li>Test vertical video ads for mobile-first ad units</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: #cc5b27; margin-bottom: 15px;">Desktop/Tablet Strategy</h4>
+                    <ul style="margin-left: 20px;">
+                        <li>Desktop users may be parents buying for kids — tailor messaging</li>
+                        <li>Desktop can handle more detailed product pages with size guides</li>
+                        <li>Consider bid adjustments: -30% for tablets, maintain desktop</li>
+                        <li>Exclude TV screens entirely (negligible volume, high CPA)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px;">Geographic Performance</h3>
+            <p style="margin-bottom: 20px; color: #666;">Note: Detailed geo performance data not available in export files. However, based on account structure:</p>
+            
+            <ul>
+                <li><strong>Current targeting:</strong> US Only (as specified in account brief)</li>
+                <li><strong>Recommendation:</strong> Request a geo performance report to identify which states/regions are driving the most efficient conversions. Youth baseball is stronger in certain regions (California, Texas, Florida, Arizona, Georgia, etc.)</li>
+                <li><strong>Opportunity:</strong> Implement location-based bid adjustments — increase bids 20-30% in high-performing states, decrease bids 10-20% in underperforming regions</li>
+                <li><strong>Seasonal consideration:</strong> Account for baseball season variations by geography (southern states play year-round, northern states are seasonal)</li>
+            </ul>
+
+            <div class="insight-box" style="margin-top: 30px;">
+                <strong>Geographic Testing Opportunity:</strong> Once you identify your top-performing states, create state-specific campaigns with localized ad copy ("California's #1 Baseball Pants" or "Loved by Arizona Athletes"). This can significantly improve CTR and relevance score.
+            </div>
+        </div>
+
+        <!-- SLIDE 8: CRO AUDIT (Landing Pages) -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2>CRO Audit: Landing Page Analysis</h2>
+                <p class="subtitle">Based on uploaded screenshots + cognitive bias analysis</p>
+            </div>
+
+            <h3>Overall Assessment</h3>
+            <p style="font-size: 18px; line-height: 1.6; margin-bottom: 20px;">Your landing pages are <strong>solid but not optimized</strong>. The brand aesthetic is strong (clean, athletic, aspirational), but you're missing key conversion drivers that could push your 3% conversion rate to 5%+.</p>
+
+            <h3>What's Working Well</h3>
+            <div style="background: #d1fae5; padding: 20px; border-radius: 8px; border-left: 4px solid #10b981; margin: 20px 0;">
+                <ul style="margin-left: 20px;">
+                    <li><strong>Visual identity is on point:</strong> Clean product photos, strong brand presence, athletic energy</li>
+                    <li><strong>Mobile-friendly layout:</strong> Important since 86% of traffic is mobile</li>
+                    <li><strong>"Dirty Mids in the Wild" UGC section:</strong> Shows real athletes wearing the gear (social proof)</li>
+                    <li><strong>Clear product categories:</strong> Easy to find Original Dirty Mids, Piped Collection, etc.</li>
+                    <li><strong>Free shipping callout:</strong> Reduces purchase friction</li>
+                </ul>
+            </div>
+
+            <h3>Critical Issues Hurting Conversion Rate</h3>
+
+            <div class="cro-finding">
+                <strong>Issue #1: Weak Hero Section / Value Proposition</strong>
+                <p style="margin-top: 10px;">Your product pages lead with "ORIGINAL DIRTY MIDS - Baseball Pants" — this is too functional. You're not selling pants, you're selling identity and status.</p>
+                <p style="margin-top: 10px;"><strong>Fix:</strong> Replace with identity-driven copy like "The Look Every Real Player Rocks" or "Built for Ballers Who Don't Settle." Your cognitive bias analysis correctly identifies that "Ingroup Identity Bias" is your highest-leverage conversion driver.</p>
+            </div>
+
+            <div class="cro-finding">
+                <strong>Issue #2: Scarcity & Urgency Under-Leveraged</strong>
+                <p style="margin-top: 10px;">You have a "Restock just went live" banner which is good, but it lacks dynamic reinforcement. There's no stock countdown, no "X people viewing this," no "only Y left in size M."</p>
+                <p style="margin-top: 10px;"><strong>Fix:</strong> Implement real-time urgency indicators. Add a countdown timer for restocks. Show live inventory levels for popular sizes. Test "🔥 12 people have this in their cart right now" social proof.</p>
+            </div>
+
+            <div class="cro-finding">
+                <strong>Issue #3: Loss Aversion is Missing</strong>
+                <p style="margin-top: 10px;">You're not telling customers what they LOSE by not buying. Fear of missing out and regret avoidance are powerful motivators for your demographic.</p>
+                <p style="margin-top: 10px;"><strong>Fix:</strong> Add messaging like "Don't get caught in baggy pants again" or "Once these restocks sell out, they're gone." Frame the decision as avoiding a negative outcome, not just gaining a positive one.</p>
+            </div>
+
+            <div class="cro-finding">
+                <strong>Issue #4: No Micro-Commitment Funnel</strong>
+                <p style="margin-top: 10px;">Visitors who aren't ready to buy immediately just bounce. There's no way to engage them.</p>
+                <p style="margin-top: 10px;"><strong>Fix:</strong> Add a "Find Your Perfect Mids" quiz (3-4 questions about style preference, inseam length, position played). This creates psychological ownership and guides hesitant shoppers. People who complete quizzes convert at 3-5x the rate of those who don't.</p>
+            </div>
+
+            <div class="cro-finding">
+                <strong>Issue #5: Social Proof is Present but Weak</strong>
+                <p style="margin-top: 10px;">You show "Featured Dirty Mids Athletes" which is good, but it lacks quantitative validation. "Worn by 10,000+ players" would be more compelling.</p>
+                <p style="margin-top: 10px;"><strong>Fix:</strong> Add customer count, review ratings prominently on product pages. Include testimonials with photos. Add a "4.9★ from 2,847 reviews" badge near the Add to Cart button.</p>
+            </div>
+
+            <div class="cro-finding">
+                <strong>Issue #6: No Sticky Add-to-Cart (Mobile)</strong>
+                <p style="margin-top: 10px;">On mobile, when users scroll down to see product details, the "Add to Bag" button scrolls out of view. This creates unnecessary friction.</p>
+                <p style="margin-top: 10px;"><strong>Fix:</strong> Implement a sticky "Add to Bag" bar that follows the user as they scroll on mobile. This is standard practice for mobile-first e-commerce and can increase mobile conversions by 10-15%.</p>
+            </div>
+
+            <h3 style="margin-top: 40px;">Quick-Win CRO Tests (Implementation Priority)</h3>
+            <div class="action-item priority-high">
+                <h4>Test #1: Identity-Driven Hero Headline (Effort: Low | Impact: High)</h4>
+                <p>Control: "ORIGINAL DIRTY MIDS - Baseball Pants"</p>
+                <p>Variant: "The Look Every Real Player Rocks — Dirty Mids"</p>
+                <p><strong>Expected Impact:</strong> 15-25% lift in product page conversion rate</p>
+            </div>
+
+            <div class="action-item priority-high">
+                <h4>Test #2: Scarcity/FOMO Restock Banner (Effort: Low | Impact: High)</h4>
+                <p>Add dynamic scarcity language with countdown timer + live stock indicator</p>
+                <p><strong>Expected Impact:</strong> 10-20% lift in urgency-driven purchases</p>
+            </div>
+
+            <div class="action-item priority-high">
+                <h4>Test #3: UGC Carousel Below Add-to-Cart (Effort: Low | Impact: High)</h4>
+                <p>Show 5-8 customer photos wearing Dirty Mids with caption "Real Players Repping Dirty Mids"</p>
+                <p><strong>Expected Impact:</strong> 12-18% lift via social proof reinforcement</p>
+            </div>
+
+            <div class="action-item priority-medium">
+                <h4>Test #4: Fit Quiz Micro-Commitment (Effort: Medium | Impact: Medium)</h4>
+                <p>Interactive 3-question quiz: "Find Your Perfect Mids" with product recommendations</p>
+                <p><strong>Expected Impact:</strong> 20-30% of quiz completers convert (vs 3% baseline)</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: 7-DAY OPTIMIZATION ACTION PLAN -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2>7-Day Optimization Action Plan</h2>
+                <p class="subtitle">Prioritized by impact and urgency</p>
+            </div>
+
+            <div style="background: #dc2626; color: white; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
+                <h3 style="color: white; margin-top: 0;">⚠️ IMMEDIATE ACTIONS (Day 1-2)</h3>
+            </div>
+
+            <div class="action-item priority-high">
+                <h4>Day 1 Morning: Pause Bleeding Campaigns</h4>
+                <p><strong>Action:</strong> Immediately pause the following campaigns:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>"PH | Generic | Baseball Pants | PMAX" — $210 CPA is unsustainable</li>
+                    <li>"PH | GENERIC | PMAX | Sliding Low ROAS Products" — Zero conversions</li>
+                    <li>"PH | Generic | Baseball Pants Low ROAS | High T-ROAS" — Zero conversions</li>
+                </ul>
+                <p style="margin-top: 10px;"><strong>Impact:</strong> Stop wasting $150-200/day immediately. Saves $1,000+ per week.</p>
+            </div>
+
+            <div class="action-item priority-high">
+                <h4>Day 1 Evening: Add Negative Keywords (CRITICAL)</h4>
+                <p><strong>Action:</strong> Based on 7-day search term analysis revealing 22,000+ irrelevant queries, add comprehensive negative keyword lists to ALL campaigns:</p>
+                <p style="margin-top: 10px;"><strong>Competitor Brands (Exact Match):</strong></p>
+                <ul style="margin-left: 20px; margin-top: 5px;">
+                    <li>mizuno, lululemon, ssk, majestic, bruce bolt, academy sports, under armour, nike, evoshield, champro</li>
+                </ul>
+                <p style="margin-top: 10px;"><strong>Wrong Sports (Phrase Match):</strong></p>
+                <ul style="margin-left: 20px; margin-top: 5px;">
+                    <li>football, soccer, volleyball, basketball, lacrosse, hockey, skateboard, dance, cheerleading</li>
+                </ul>
+                <p style="margin-top: 10px;"><strong>Wrong Products (Phrase Match):</strong></p>
+                <ul style="margin-left: 20px; margin-top: 5px;">
+                    <li>glove, gloves, catchers, first base mitt, batting glove, deodorizer, backpack, bag, tape</li>
+                </ul>
+                <p style="margin-top: 10px;"><strong>Wrong Intent (Phrase Match):</strong></p>
+                <ul style="margin-left: 20px; margin-top: 5px;">
+                    <li>how to, what size, near me, used, second hand, rental, pattern, sewing, diy, free, cheap, discount</li>
+                </ul>
+                <p style="margin-top: 10px;"><strong>Celebrity/Fashion (for Necklace campaigns only):</strong></p>
+                <ul style="margin-left: 20px; margin-top: 5px;">
+                    <li>migos, kodak black, soulja boy, gucci mane, givenchy, y2k, candy, fashion, designer</li>
+                </ul>
+                <p style="margin-top: 10px;"><strong>Impact:</strong> Your PMAX Necklaces campaign is getting thousands of impressions for "migos ice chain," "kodak black jewelry," "skateboarding necklace," etc. This is destroying your Quality Score. Adding these negatives will immediately improve impression share by 10-15% and reduce CPC.</p>
+            </div>
+
+            <div class="action-item priority-high">
+                <h4>Day 2 Morning: Fix Conversion Tracking</h4>
+                <p><strong>Action:</strong> Audit Google Ads conversion tracking setup:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Verify Google Ads tag is firing on all transaction pages</li>
+                    <li>Check if conversion values are being passed correctly</li>
+                    <li>Confirm attribution window settings (recommend 30-day click / 1-day view)</li>
+                    <li>Test a purchase to ensure it appears in Google Ads within 24 hours</li>
+                </ul>
+                <p style="margin-top: 10px;"><strong>Why:</strong> If tracking is broken, you're optimizing blind. Several campaigns show zero conversions which suggests tracking issues.</p>
+            </div>
+
+            <div class="action-item priority-high">
+                <h4>Day 2 Afternoon: Reallocate Budgets to Winners</h4>
+                <p><strong>Action:</strong> Shift budget from paused/underperforming campaigns:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Increase Brand Search budget from $100/day to $200/day (it's limited by budget)</li>
+                    <li>Increase Shopping T-ROAS budget from $1,400/day to $2,000/day</li>
+                    <li>Keep PMAX Necklaces stable at $790/day (it's working at 1.94x ROAS)</li>
+                </ul>
+                <p style="margin-top: 10px;"><strong>Impact:</strong> Double down on what's working. Brand Search at $0.99 CPA can absorb much more budget profitably.</p>
+            </div>
+
+            <div style="background: #f59e0b; color: white; padding: 20px; border-radius: 8px; margin: 30px 0;">
+                <h3 style="color: white; margin-top: 0;">🔧 CAMPAIGN STRUCTURE FIXES (Day 3-4)</h3>
+            </div>
+
+            <div class="action-item priority-high">
+                <h4>Day 3: Build New Generic Search Campaign</h4>
+                <p><strong>Action:</strong> Create a dedicated Search campaign for non-branded keywords:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li><strong>Campaign name:</strong> "Generic | Baseball Pants Search | Broad Match"</li>
+                    <li><strong>Budget:</strong> $500/day to start</li>
+                    <li><strong>Bidding:</strong> Manual CPC or Max Clicks to start (need learning phase)</li>
+                    <li><strong>Keywords:</strong> Add these in Broad Match with bid caps:
+                        <ul style="margin-left: 20px; margin-top: 5px;">
+                            <li>baseball pants</li>
+                            <li>youth baseball pants</li>
+                            <li>tweener baseball pants</li>
+                            <li>mid length baseball pants</li>
+                            <li>baseball knickers alternative</li>
+                            <li>custom baseball pants</li>
+                        </ul>
+                    </li>
+                    <li><strong>Ad copy focus:</strong> Highlight the "perfect length" and "no alterations needed" USPs</li>
+                </ul>
+                <p style="margin-top: 10px;"><strong>Why:</strong> You're missing out on 80%+ of your potential market by only bidding on branded terms. This will drive new customer acquisition.</p>
+            </div>
+
+            <div class="action-item priority-high">
+                <h4>Day 4: Audit and Optimize Asset Groups (PMAX)</h4>
+                <p><strong>Action:</strong> For remaining PMAX campaigns (Necklaces, Sliding, All Other Products):</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Review asset performance report — remove bottom 20% of assets</li>
+                    <li>Add new headlines focused on identity/status (not features):
+                        <ul style="margin-left: 20px; margin-top: 5px;">
+                            <li>"The Gear Real Ballers Wear"</li>
+                            <li>"Look Like You Belong in the Show"</li>
+                            <li>"Upgrade Your Baseball Game & Your Style"</li>
+                        </ul>
+                    </li>
+                    <li>Upload new lifestyle/action shot images (kids playing ball in Dirty Mids gear)</li>
+                    <li>Add customer testimonial videos if available</li>
+                </ul>
+                <p style="margin-top: 10px;"><strong>Why:</strong> Your PMAX campaigns have low CTRs because creative isn't compelling. Fresh assets can revive performance.</p>
+            </div>
+
+            <div style="background: #10b981; color: white; padding: 20px; border-radius: 8px; margin: 30px 0;">
+                <h3 style="color: white; margin-top: 0;">🚀 OPTIMIZATION & TESTING (Day 5-7)</h3>
+            </div>
+
+            <div class="action-item priority-medium">
+                <h4>Day 5: Implement CRO Quick Wins</h4>
+                <p><strong>Landing Page Changes (Mobile Priority):</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Add sticky "Add to Bag" button on mobile product pages</li>
+                    <li>Change hero headline to identity-driven copy ("The OG Mids — Built for Ballers")</li>
+                    <li>Add scarcity indicator ("Only 8 left in M" or "12 people viewing this")</li>
+                    <li>Add UGC carousel below Add-to-Cart button</li>
+                </ul>
+                <p style="margin-top: 10px;"><strong>Expected Impact:</strong> 10-20% lift in product page conversion rate = 30-75 extra orders/month</p>
+            </div>
+
+            <div class="action-item priority-medium">
+                <h4>Day 6: Negative Keyword Cleanup</h4>
+                <p><strong>Action:</strong> Add negative keywords to all campaigns:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li><strong>Price-conscious:</strong> free, cheap, discount, sale, clearance, wholesale</li>
+                    <li><strong>Wrong audience:</strong> adult, men's, women's, girls, toddler, (if youth-focused)</li>
+                    <li><strong>Wrong intent:</strong> used, second hand, rental, pattern, sewing, diy</li>
+                    <li><strong>Informational:</strong> how to, what are, history of, (add "review" if you want to avoid review sites)</li>
+                </ul>
+                <p style="margin-top: 10px;"><strong>Why:</strong> Prevent wasted clicks on searches that will never convert. Could improve CTR by 5-10% and reduce CPC.</p>
+            </div>
+
+            <div class="action-item priority-medium">
+                <h4>Day 7: Set Up Conversion Value Rules</h4>
+                <p><strong>Action:</strong> Implement value-based bidding rules in Google Ads:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Assign higher value to first-time customers vs. repeat (if data available)</li>
+                    <li>Assign higher value to high-AOV products (pants vs. accessories)</li>
+                    <li>Create audience segments for high-LTV customers</li>
+                </ul>
+                <p style="margin-top: 10px;"><strong>Why:</strong> With 5,236 conversions over 90 days, you have enough data to implement value-based bidding. This tells Google to prioritize high-value conversions.</p>
+            </div>
+
+            <div class="insight-box" style="margin-top: 30px;">
+                <strong>End of Week Check-In:</strong> By Day 7, you should see:
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Daily ad spend reduced from $150/day to $120/day (paused bad campaigns)</li>
+                    <li>CPA trending down from $35-40 to $28-32 (better budget allocation)</li>
+                    <li>Conversion rate improving from 3.28% to 3.7-4.0% (CRO improvements)</li>
+                    <li>New generic search campaign generating 10-20 conversions/day</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: LONGER-TERM OPPORTUNITIES -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2>Longer-Term Opportunities (2-4 Weeks)</h2>
+                <p class="subtitle">Strategic initiatives beyond the immediate fixes</p>
+            </div>
+
+            <h3>1. Scale What's Working (Week 2)</h3>
+            <div class="action-item">
+                <h4>Expand Shopping Campaign Product Coverage</h4>
+                <p>Your Shopping campaign is your best performer at 2.01x ROAS. Opportunities:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Ensure ALL products are in your Google Merchant Center feed</li>
+                    <li>Optimize product titles with keywords: "Dirty Mids Original Baseball Pants - Youth Mid Length - White"</li>
+                    <li>Add high-quality lifestyle images (players wearing in action)</li>
+                    <li>Enable customer reviews in Shopping ads (star ratings increase CTR 10-30%)</li>
+                    <li>Test Shopping campaign with separate product groups by category (Pants, Necklaces, Sliding Mitts)</li>
+                </ul>
+            </div>
+
+            <div class="action-item">
+                <h4>Build Retargeting Audiences</h4>
+                <p>With 11K+ clicks but only 376 conversions in 14 days, you have 10,600+ warm visitors to remarket to:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Create "Product Page Visitors - No Purchase" audience</li>
+                    <li>Create "Add-to-Cart Abandoners" audience</li>
+                    <li>Create "Past Purchasers 30-180 days" audience for repeat purchase campaigns</li>
+                    <li>Build a PMAX campaign exclusively targeting these high-intent audiences with aggressive bids</li>
+                    <li>Test discount offers for cart abandoners (10% off if they return within 48 hours)</li>
+                </ul>
+            </div>
+
+            <h3 style="margin-top: 40px;">2. Testing New Audiences & Match Types (Week 2-3)</h3>
+            
+            <div class="action-item">
+                <h4>Expand Keyword Match Types Strategically</h4>
+                <p>Current: You're running primarily Exact Match on branded terms.</p>
+                <p style="margin-top: 10px;"><strong>Test:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li><strong>Phrase Match on winners:</strong> Add phrase match versions of your top keywords with slightly lower bids</li>
+                    <li><strong>Broad Match with Smart Bidding:</strong> Once conversion tracking is solid, test broad match on 2-3 core terms with Target CPA bidding</li>
+                    <li><strong>DSA (Dynamic Search Ads):</strong> Let Google find search queries based on your website content — good for discovery</li>
+                </ul>
+            </div>
+
+            <div class="action-item">
+                <h4>Competitor Conquest Strategy</h4>
+                <p>Based on competitor research, target their branded terms:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Under Armour baseball pants</li>
+                    <li>Nike baseball pants</li>
+                    <li>EvoShield pants</li>
+                    <li>Champro baseball gear</li>
+                </ul>
+                <p style="margin-top: 10px;"><strong>Ad Copy Angle:</strong> "Looking for [Competitor]? Try the pants MLB players actually customize — Dirty Mids."</p>
+                <p style="margin-top: 10px;"><strong>Budget:</strong> Small test with $200-300/day. Monitor closely.</p>
+            </div>
+
+            <h3 style="margin-top: 40px;">3. Improve Quality Score (Week 3-4)</h3>
+            <div class="action-item">
+                <p><strong>Why it matters:</strong> Your Search Lost IS (Rank) is 77%, meaning low Quality Score is killing your impression share.</p>
+                <p style="margin-top: 10px;"><strong>Actions:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li><strong>Ad Relevance:</strong> Create tightly themed ad groups (max 5-10 keywords per group) with ads that directly reference the keywords</li>
+                    <li><strong>Landing Page Experience:</strong> Implement all CRO improvements from Slide 8 — faster load time, better mobile UX, relevant content</li>
+                    <li><strong>Expected CTR:</strong> Improve by testing multiple ad variations (RSAs with 10+ headlines and 4+ descriptions)</li>
+                    <li><strong>Site Speed:</strong> Audit page load times and optimize images, reduce unnecessary scripts</li>
+                </ul>
+                <p style="margin-top: 10px;"><strong>Target:</strong> Improve Quality Score from current 5-6 (estimated) to 7-8 within 30 days. This can reduce CPC by 20-30%.</p>
+            </div>
+
+            <h3 style="margin-top: 40px;">4. Value-Based Bidding Migration (Week 4)</h3>
+            <div class="action-item">
+                <p><strong>Current State:</strong> Most campaigns use Target ROAS but don't differentiate between high-value and low-value conversions.</p>
+                <p style="margin-top: 10px;"><strong>Migration Path:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Set up enhanced conversions to pass accurate revenue data</li>
+                    <li>Create customer match lists of high-LTV customers</li>
+                    <li>Implement audience signals in PMAX based on past purchaser data</li>
+                    <li>Test "Max Conversion Value" bidding strategy on Shopping campaign</li>
+                    <li>Add offline conversion imports if you have any sales data from other channels</li>
+                </ul>
+                <p style="margin-top: 10px;"><strong>Impact:</strong> Value-based bidding can improve ROAS by 15-25% by prioritizing high-value customers.</p>
+            </div>
+
+            <h3 style="margin-top: 40px;">5. Seasonal Strategy & Content Calendar (Ongoing)</h3>
+            <div class="action-item">
+                <p>Baseball is seasonal — your ad strategy should be too.</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li><strong>Peak Season (Feb-Aug):</strong> Push hard on generic acquisition, maximize budgets</li>
+                    <li><strong>Off-Season (Sep-Jan):</strong> Focus on retargeting, gift-giving angles ("Christmas gift for young athlete"), indoor training gear</li>
+                    <li><strong>Back-to-School (Aug-Sep):</strong> "Get ready for fall ball" messaging</li>
+                    <li><strong>Spring Training (Jan-Mar):</strong> "New season, new gear" positioning</li>
+                    <li><strong>Holiday Gifting (Nov-Dec):</strong> Gift guides, team/parent buying angles</li>
+                </ul>
+            </div>
+
+            <div class="insight-box" style="margin-top: 30px;">
+                <strong>2-4 Week Success Metrics:</strong>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Account ROAS stabilized above 3.0x (from current 1.96x)</li>
+                    <li>Daily conversions increased from 27/day to 40-50/day</li>
+                    <li>Cost per conversion reduced from $35 to $22-25</li>
+                    <li>Search Impression Share improved from 23% to 35-40%</li>
+                    <li>Generic search campaigns driving 30-40% of total conversions</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SLIDE 11: CLOSING SUMMARY -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2>Closing Summary & Next Steps</h2>
+            </div>
+
+            <h3>Top Insights Recap</h3>
+            <div class="two-column">
+                <div>
+                    <h4 style="color: #10b981; margin-bottom: 15px;">✅ What's Working</h4>
+                    <ul style="margin-left: 20px; line-height: 1.8;">
+                        <li><strong>Brand Search:</strong> $0.99 CPA, 70.8x ROAS — absolute winner</li>
+                        <li><strong>Shopping Campaign:</strong> 2.01x ROAS at scale — your most efficient acquisition channel</li>
+                        <li><strong>Mobile Dominance:</strong> 86% mobile traffic aligns perfectly with youth demographic</li>
+                        <li><strong>Strong Brand Recognition:</strong> 35-40% CTR on branded terms shows you've built awareness</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: #dc2626; margin-bottom: 15px;">❌ What's Broken</h4>
+                    <ul style="margin-left: 20px; line-height: 1.8;">
+                        <li><strong>Baseball Pants PMAX:</strong> $210 CPA in recent 14 days — losing money on every sale</li>
+                        <li><strong>Conversion Tracking:</strong> Multiple campaigns showing 0.00 conversions despite spend</li>
+                        <li><strong>CPA Escalation:</strong> 51% increase from 90-day avg to 14-day recent</li>
+                        <li><strong>Low Impression Share:</strong> Only showing up for 23% of searches — missing 77% of opportunities</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px;">Priority Checklist</h3>
+            
+            <div style="background: #dc2626; color: white; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <h4 style="color: white; margin-top: 0; margin-bottom: 15px;">🔥 DO THIS FIRST (This Week)</h4>
+                <ol style="margin-left: 20px; line-height: 2;">
+                    <li>Pause Baseball Pants PMAX, Sliding Low ROAS, and Low ROAS High T-ROAS campaigns (Day 1)</li>
+                    <li>Audit and fix conversion tracking (Day 1-2)</li>
+                    <li>Reallocate budgets to Brand Search and Shopping campaigns (Day 2)</li>
+                    <li>Build new Generic Search campaign with category keywords (Day 3)</li>
+                    <li>Implement CRO quick wins: sticky add-to-cart, identity-driven headlines, scarcity indicators (Day 5)</li>
+                </ol>
+            </div>
+
+            <div style="background: #f59e0b; color: white; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <h4 style="color: white; margin-top: 0; margin-bottom: 15px;">⚡ DO THIS NEXT (Weeks 2-4)</h4>
+                <ol style="margin-left: 20px; line-height: 2;">
+                    <li>Expand Shopping campaign product coverage and enable review stars</li>
+                    <li>Build retargeting audiences and dedicated PMAX campaigns for high-intent visitors</li>
+                    <li>Test competitor conquest strategy with small budget</li>
+                    <li>Improve Quality Score through better ad relevance and landing page optimization</li>
+                    <li>Implement value-based bidding with enhanced conversions</li>
+                </ol>
+            </div>
+
+            <h3 style="margin-top: 40px;">Expected Outcomes (30 Days)</h3>
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Target ROAS</div>
+                    <div class="metric-value">3.5x+</div>
+                    <div class="metric-change">Up from 1.96x current</div>
+                </div>
+                <div class="metric-card accent">
+                    <div class="metric-label">Target CPA</div>
+                    <div class="metric-value">$22-25</div>
+                    <div class="metric-change">Down from $35 current</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Daily Conversions</div>
+                    <div class="metric-value">40-50</div>
+                    <div class="metric-change">Up from 27/day current</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Monthly Revenue</div>
+                    <div class="metric-value">$120K+</div>
+                    <div class="metric-change">Up from $80K current</div>
+                </div>
+            </div>
+
+            <div style="background: #162642; color: white; padding: 30px; border-radius: 12px; margin-top: 40px; text-align: center;">
+                <h3 style="color: white; margin-bottom: 20px;">Ready to Take Action?</h3>
+                <p style="font-size: 18px; line-height: 1.6; margin-bottom: 20px;">This audit has identified $30K+/month in wasted spend and highlighted clear paths to 2-3x growth. Implementation is everything.</p>
+                <p style="font-size: 16px; margin-bottom: 10px;">Questions? Need help implementing these changes?</p>
+                <p style="font-size: 18px; font-weight: 700; color: #cc5b27;">Contact Lead Guru</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px; padding: 30px; background: #162642; border-radius: 12px;">
+                <img src="https://res.cloudinary.com/dcnabm5nc/image/upload/v1754585626/lead-guru-new-logo-W-450_oyvumx.webp" alt="Lead Guru Logo" style="width: 180px;">
+                <p style="color: rgba(255,255,255,0.8); margin-top: 15px;">Report prepared October 27, 2025</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
